@@ -77,7 +77,7 @@ Para enviar uma requisição, utilize o Insomnia (ou Postman) e faça uma chamad
 
 * **URL:** `http://localhost:3000/payments`
 * **Body (JSON):**
-  ```json
+```json
 {
     "idUser": "theo_luiz_AV2",
     "orderNumber": 1001,
