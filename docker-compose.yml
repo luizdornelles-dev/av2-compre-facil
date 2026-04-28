@@ -1,0 +1,42 @@
+services:
+  postgres:
+    image: postgres
+    container_name: compre_facil_db
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: root
+    networks:
+      - compre-facil-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: compre_facil_pgadmin
+    restart: always
+    ports:
+      - "15432:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "root@root.com"
+      PGADMIN_DEFAULT_PASSWORD: "root"
+    depends_on:
+      - postgres
+    networks:
+      - compre-facil-network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: compre_facil_rmq
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: 123456
+    networks:
+      - compre-facil-network
+
+networks:
+  compre-facil-network:
+    driver: bridge
