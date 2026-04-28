@@ -25,7 +25,7 @@ Este software foi integralmente desenvolvido e testado no seguinte ambiente:
 
 ---
 
-## 🛠️ Tecnologias e Versões Utilizadas
+##  Tecnologias e Versões Utilizadas
 
 Para garantir a estabilidade e o funcionamento correto deste projeto, as seguintes tecnologias e versões específicas foram utilizadas:
 
@@ -38,7 +38,7 @@ Para garantir a estabilidade e o funcionamento correto deste projeto, as seguint
 
 ---
 
-## 🚀 Como Executar o Projeto (Passo a Passo)
+##  Como Executar o Projeto (Passo a Passo)
 
 As instruções abaixo foram elaboradas para que qualquer desenvolvedor consiga rodar o projeto do zero em sua máquina.
 
@@ -78,13 +78,13 @@ Para enviar uma requisição, utilize o Insomnia (ou Postman) e faça uma chamad
 * **URL:** `http://localhost:3000/payments`
 * **Body (JSON):**
   ```json
-  {
+{
     "idUser": "theo_luiz_AV2",
     "orderNumber": 1001,
     "orderValue": 250.50
-  }
+}
 ```
----
+
 Abaixo estão as evidências de testes realizados.
 1. Histórico de Requisições Rápidas
 Prova de que o serviço de pagamento suporta múltiplas requisições sequenciais com respostas na casa dos milissegundos, demonstrando a eficiência da API.
