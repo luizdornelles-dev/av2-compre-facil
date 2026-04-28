@@ -6,13 +6,13 @@ import { PrismaService } from './prisma.service';
 export class AppController {
   constructor(
     private readonly prisma: PrismaService,
-    // Injetamos o "transmissor" do RabbitMQ que configuramos no app.module
-    @Inject('PAYMENT_SERVICE') private client: ClientProxy,
+    
+        @Inject('PAYMENT_SERVICE') private client: ClientProxy,
   ) {}
 
   @Post()
   async createPayment(@Body() data: { idUser: string; orderNumber: number; orderValue: number }) {
-    // 1. Salva o pagamento no Banco de Dados (PostgreSQL) via Prisma
+    
     const payment = await this.prisma.creditCard.create({
       data: {
         idUser: data.idUser,
@@ -24,8 +24,7 @@ export class AppController {
 
     console.log('✅ Pagamento salvo no banco!');
 
-    // 2. Envia a mensagem para a fila do RabbitMQ
-    // O "emit" dispara a mensagem e não fica esperando resposta (assíncrono)
+   
     this.client.emit('payment_finished', payment);
     
     console.log('📨 Mensagem enviada para o RabbitMQ!');
